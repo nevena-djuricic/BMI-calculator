@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>BMI kalkulator</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+              <script language="JavaScript">
+                        function racun(){
+                                var visina = document.BMIform.visina.value
+                                var tezina = document.BMIform.tezina.value
+
+                                if(tezina > 0 && visina > 0){
+                                var BMI =  tezina/(visina/100*visina/100)
+                                BMIform.rezultat.value = BMI
+								
+                                if(BMI <= 19.1){
+                                document.BMIform.tip.value = "Neuhranjenost!"
+                                }
+                                if(BMI > 19.1 && BMI <= 25.8){
+                                document.BMIform.tip.value = "Normalna telesna masa!"
+                                }
+                                if(BMI > 25.8 && BMI <= 27.3){
+                                document.BMIform.tip.value = "Povećana telesna masa!"
+                                }
+                                if(BMI > 27.3 && BMI <= 32.3){
+                                document.BMIform.tip.value = "Gojaznost prvog stepena!"
+                                }
+                                if(BMI > 32.3 && BMI <= 45){
+                                document.BMIform.tip.value = "Gojaznost drugog stepena!"
+                                }
+                                if(BMI > 45){
+                                document.BMIform.tip.value = "Ekstremna gojaznost!"
+								}
+                                }
+
+                                else{
+                                alert("Molimo Vas da unesete ispravne podatke!")
+                                }
+                                
+                        }
+                </script>
+</head>
+<body>
+        <h1>BMI kalkulator</h1>
+
+        <h2><i>Šta je zapravo BMI i čemu služi?</i></h2>
+
+        <p>Indeks telesne mase (engleski Body mass index - BMI) je visinsko - 
+        težinski pokazatelj uhranjenosti pojedinca i validan je za sve osobe starije 
+        od 20 godina. Računa se tako što se telesna masa osobe u kilogramima podeli 
+        sa kvadratom visine u metrima. BMI prikazuje odnos težine i visine tela, 
+        međutim ne uzima u obzir telesnu građu, pa je njegova upotreba ograničena. 
+        Pojedinci sa velikom telesnom masom i visokim BMI indeksom ne mogu se 
+        automatski kategorizovati kao gojazni. Na primer, kod bodibildera i krupno 
+        građenih ljudi, udeo mišićne i koštane mase u odnosu na visinu je velik, ali 
+        to ne znači da su oni debeli. Ipak, BMI se koristi kao dobra medicinska i 
+        statistička mera uhranjenosti.</p>
+        
+        <h3><i>Izračunajte Vaš BMI!</i></h3>
+        
+        <form name="BMIform">   
+                <p style="margin-bottom:0">Unesite vašu visinu (u cm):&nbsp;
+                        <input type="text" name="visina" size="23"/></p>
+                
+                <p style="margin-bottom:0">Unesite vašu težinu (u kg):&nbsp;
+                        <input type="text" name="tezina" size="23"/></p>
+                
+                
+                
+        <p>
+                <input type="button" value="Izračunajte" class="racun" onClick = "racun()" style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" value="Resetujte" class="briši" onClick="BMIform.reset()" style="font-weight: bold"/>
+        </p>
+
+        <h3><i>Rezultati</i></h3>
+        
+
+                                Vaš BMI iznosi:<b>&nbsp; </b>
+                                        <input type="text" name="rezultat" size="25">
+                                Pripadate kategoriji:<b>&nbsp; </b>
+                                        <input type="text" name="tip" disabled="disabled" size="29" class="podaci"></br>
+                                        &nbsp;<br/>
+                                
+      </form>   
+</body>
+</html>
